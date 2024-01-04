@@ -1,6 +1,8 @@
 const controller = {};
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const Product = require('../models/product');
+
 
 controller.deleteUser = async (req, res) => {
     try {
@@ -13,25 +15,25 @@ controller.deleteUser = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 
-} 
+}
 
-controller.addUser = async (req,res) => {
-  const newUser = new User({
-    userName: "admin",
-    password: "admin",
-    hoTen: "admin",
-    email: "admin",
-    sdt: "01234567764",
-    role: "user",
-  });
+controller.addUser = async (req, res) => {
+    const newUser = new User({
+        userName: "admin",
+        password: "admin",
+        hoTen: "admin",
+        email: "admin",
+        sdt: "01234567764",
+        role: "user",
+    });
 
-  try {
-    const savedUser = await newUser.save();
-    console.log(`User ${savedUser.userID} has been added.`);
-  } catch (error) {
-    console.error(`Error occurred while adding user: ${error}`);
-  }
-}; 
+    try {
+        const savedUser = await newUser.save();
+        console.log(`User ${savedUser.userID} has been added.`);
+    } catch (error) {
+        console.error(`Error occurred while adding user: ${error}`);
+    }
+};
 
 controller.showLogin = (req, res) => {
     let reqUrl = req.query.reqUrl ? req.query.reqUrl : '/';
@@ -90,11 +92,34 @@ controller.isLoggedIn = async (req, res, next) => {
 };
 
 controller.showIndex = async (req, res) => {
-
-        res.render('index', {
-            layout: 'index',
-        });
+    let product = await Product.find({});
+    let in_cartproduct = await Product.find({ in_cart: 1 });
+    res.render('index', {
+        layout: 'index',
+        product: product,
+        in_cartproduct: in_cartproduct,
+    });
 
 };
+controller.showRegister = async (req, res) => {
+
+    res.render('register', {
+        layout: 'login-signup',
+    });
+
+};
+
+controller.deleteInCart = async (req, res) => {
+    const keyword = req.query.keyword;
+    await Product.updateOne({ productName: keyword, in_cart: 1 }, { in_cart: 0 });
+    try {
+        
+        res.redirect('/');
+        // or wherever you want to redirect after saving
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+}
 
 module.exports = controller;

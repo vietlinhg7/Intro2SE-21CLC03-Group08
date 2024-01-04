@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
     productName: { type: String, required: true },
-    price: Number,
-    quality: Number,
+    price_old: String,
+    price_current: String,
+    quantity: Number,
+    item_sold: Number,
     image: String,
+    in_cart: Number,
 });
 
 const Product = mongoose.model('Product', productSchema);

@@ -31,62 +31,37 @@ body{
   /* border: 1px solid yellow; */
   text-align: center;
 } 
-.right-section-login-board
+
+/* cái này nằm bên template chung */
+.login-signup-header
 {
   position: fixed;
-  /* border: 1px solid red; */
-  top: 20vh;
-  right: 10vw;
-  width: 30vw;
-  height: 55%;
-  background-color: white;
-}
-.login-text
-{
-  position: fixed;
-  margin-top: 1%;
-  margin-left: 2%;
-  font-size: 30px;
-}
-.right-section-login-board input
-{
-  position: fixed;
-  margin-top: 4%;
-  margin-left: 2%;
-  font-size: 16px;
-  width: 25vw;
-  border: 1px solid black;
-  border-radius: 0.5vw;
+  top: 0;
 }
 
-.login-button {
-  position: fixed;
-  margin-top: 12%;
-  margin-left: 2%;
-  font-size: 16px;
-  background-color: #F0B90B;
-  width: 25vw;
-  height: 7vh;
-  border-radius: 4vh;
-  border:none;
-}
-.show_password_checkbox .my_checkbox
+.login-signup-header img
 {
+  width: 6vw;
+  height: 10vh;
+  margin-left: 10vw;
+  margin-top: 0.5%;
+  display: inline-block;
   position: fixed;
-  margin-top: 8%;
-  margin-left: -10%
-}
-.show_password_checkbox h6
-{
-  position: fixed;
-  margin-top: 7.7%;
-  margin-left: 3.5%
-}
-.signup
-{
-  position: fixed;
-  margin-top: 16%;
-  margin-left: 5%;
 }
 
+.login-signup-header h2
+{
+  position: fixed;
+  margin-left: 16vw;
+  margin-top: 2.0%;
+  display: inline-block;
+  color: #F0B90B;
+}
 
+.login-signup-header h3
+{
+  position: fixed;
+  margin-left: 27.2vw;
+  margin-top: 2.25%;
+  display: inline-block;
+}

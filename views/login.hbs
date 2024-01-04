@@ -1,30 +1,30 @@
 <body>
   <div class="login-body">
-    <div class="left-section">
+    <div class="left-section float-start">
       <img class="brand-logo" src="./assets/img/logo_header.png" alt="">
       <div class="introduction">
         <h1>Shopbee</h1>
         <h6>Nền tảng thương mại điện tử <br> yêu thích ở Đông Nam Á &#38; Việt Nam</h6>
       </div>
     </div>
-
-    <div class="right-section-login-board">
-      <div class="login-text">
-        Đăng nhập
+    <div class="right-section-login-board float-end bg-white m-5 rounded ">
+      <div class="login-text text-center m-3">
+        <h4><strong>ĐĂNG NHẬP</strong></h4>
       </div>
-      <form class="input" action="/login" method="POST">
+      <form class="input m-3" action="/login" method="POST">
         <label for="account"></label><br>
-        <input type="text" id="account" name="account" placeholder="Email/Số điện thoại/Tên đăng nhập"><br>
+        <input class="mx-1 w-100" type="text" id="account" name="account" placeholder="Email/Số điện thoại/Tên đăng nhập"><br>
         <label for="password"></label><br>
-        <input type="password" id="password" name="password" placeholder="Mật khẩu">
-        <div class="show_password_checkbox">
-          <input class="my_checkbox" type="checkbox" onclick="myFunction()">
+        <input class="mx-1 w-100" type="password" id="password" name="password" placeholder="Mật khẩu">
+        <div class="show_password_checkbox m-3">
+          <input class="my_checkbox text-start" type="checkbox" onclick="myFunction()">
           Hiện mật khẩu
         </div>
-        <button class="login-button" type="submit">
-          ĐĂNG NHẬP
+        <button class="login-button m-3 text-start rounded" type="submit">
+          <h5><strong>ĐĂNG NHẬP</strong></h5>
+
         </button>
-        <h6 class="signup">Bạn mới biết đến Shopbee? <a class="signup_link" href="#" style="color: #F0B90B;">Đăng ký</a>
+        <h6 class="signup">Bạn mới biết đến Shopbee? <a class="signup_link" href="/register" style="color: #F0B90B;">Đăng ký</a>
         </h6>
       </form>
     </div>

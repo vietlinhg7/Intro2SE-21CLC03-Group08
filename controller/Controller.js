@@ -96,5 +96,13 @@ controller.showIndex = async (req, res) => {
         });
 
 };
+controller.showRegister = async (req, res) => {
+
+    res.render('register', {
+        layout: 'login-signup',
+    });
+
+};
+
 
 module.exports = controller;

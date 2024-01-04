@@ -30,25 +30,25 @@ app.set("view engine", "hbs");
 const uri = "mongodb+srv://nhom10:web21ktpm@cluster0.uveminn.mongodb.net/nhom8?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const addUser = async () => {
-  const newUser = new User({
-    userName: "admin",
-    password: "admin",
-    hoTen: "admin",
-    email: "admin",
-    sdt: "01234567764",
-    role: "user",
-  });
+// const addUser = async () => {
+//   const newUser = new User({
+//     userName: "admin",
+//     password: "admin",
+//     hoTen: "admin",
+//     email: "admin",
+//     sdt: "01234567764",
+//     role: "user",
+//   });
 
-  try {
-    const savedUser = await newUser.save();
-    console.log(`User ${savedUser.userID} has been added.`);
-  } catch (error) {
-    console.error(`Error occurred while adding user: ${error}`);
-  }
-};
+//   try {
+//     const savedUser = await newUser.save();
+//     console.log(`User ${savedUser.userID} has been added.`);
+//   } catch (error) {
+//     console.error(`Error occurred while adding user: ${error}`);
+//   }
+// };
 
-addUser();
+// addUser();
 
 // Cau hinh cho phep doc du lieu gui len bang phuong thuc POST
 app.use(express.json());

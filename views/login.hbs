@@ -12,21 +12,21 @@
       <div class="login-text">
         Đăng nhập
       </div>
-      <form class="input ">
+      <form class="input" action="/login" method="POST">
         <label for="account"></label><br>
         <input type="text" id="account" name="account" placeholder="Email/Số điện thoại/Tên đăng nhập"><br>
         <label for="password"></label><br>
         <input type="password" id="password" name="password" placeholder="Mật khẩu">
+        <div class="show_password_checkbox">
+          <input class="my_checkbox" type="checkbox" onclick="myFunction()">
+          Hiện mật khẩu
+        </div>
+        <button class="login-button" type="submit">
+          ĐĂNG NHẬP
+        </button>
+        <h6 class="signup">Bạn mới biết đến Shopbee? <a class="signup_link" href="#" style="color: #F0B90B;">Đăng ký</a>
+        </h6>
       </form>
-      <div class="show_password_checkbox">
-        <input class="my_checkbox" type="checkbox" onclick="myFunction()">
-        Hiện mật khẩu
-      </div>
-      <button class="login-button">
-        ĐĂNG NHẬP
-      </button>
-      <h6 class="signup">Bạn mới biết đến Shopbee? <a class="signup_link" href="#" style="color: #F0B90B;">Đăng ký</a>
-      </h6>
 
     </div>
   </div>

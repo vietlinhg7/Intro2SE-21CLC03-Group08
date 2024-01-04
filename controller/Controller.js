@@ -17,7 +17,6 @@ controller.showLogin = (req, res) => {
 
 controller.login = async (req, res) => {
     let { account, password, rememberMe } = req.body;
-    console.log(account);
     let user = await User.findOne({ userName: account, password });
     if (user) {
         let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/';
@@ -61,8 +60,8 @@ controller.isLoggedIn = async (req, res, next) => {
 
 controller.showIndex = async (req, res) => {
 
-        res.render('login', {
-            layout: 'login-signup',
+        res.render('index', {
+            layout: 'index',
         });
 
 };

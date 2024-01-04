@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-//const User = require('./models/user');
+const User = require('./models/user');
 
 
 const app = express();
@@ -30,26 +30,25 @@ app.set("view engine", "hbs");
 const uri = "mongodb+srv://nhom10:web21ktpm@cluster0.uveminn.mongodb.net/nhom8?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// const addUser = async () => {
-//   const newUser = new Billboard({
-//     billboardID: 'b01',
-//     loaiID: 'l01',
-//     kichthuoc: '2.5m x 10m',
-//     hinhthuc: 'Cổ động chính trị',
-//     hinhanh: 'https://cdnphoto.dantri.com.vn/vdDPWOVB1hcODVeyES8rD1GTLio=/zoom/1200_630/2019/04/23/truong-dh-khoa-hoc-tu-nhien-tphcm-1555986970839.jpg',
-//     ngayhethan: new Date('2024-11-21'),
-//     locationID: 'p4q5-1'
-//   });
+const addUser = async () => {
+  const newUser = new User({
+    userName: "admin",
+    password: "admin",
+    hoTen: "admin",
+    email: "admin",
+    sdt: "01234567764",
+    role: "String",
+  });
 
-//   try {
-//     const savedUser = await newUser.save();
-//     console.log(`User ${savedUser.userID} has been added.`);
-//   } catch (error) {
-//     console.error(`Error occurred while adding user: ${error}`);
-//   }
-// };
+  try {
+    const savedUser = await newUser.save();
+    console.log(`User ${savedUser.userID} has been added.`);
+  } catch (error) {
+    console.error(`Error occurred while adding user: ${error}`);
+  }
+};
 
-// addUser();
+addUser();
 
 // Cau hinh cho phep doc du lieu gui len bang phuong thuc POST
 app.use(express.json());

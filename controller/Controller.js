@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 
 controller.showIndex = async (req, res) => {
 
-        res.render('index', {
-            layout: 'index',
+        res.render('login', {
+            layout: 'login-signup',
         });
 
 };

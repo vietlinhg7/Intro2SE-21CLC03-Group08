@@ -1,10 +1,9 @@
-body
-{
+body {
   overflow: hidden;
   font-family: 'roboto';
 }
-.body-container
-{
+
+.body-container {
   background-color: #F0B90B;
   position: fixed;
   height: 80vh;
@@ -13,26 +12,29 @@ body
   content: "";
   top: 60px;
 }
-.logo-brand img{
+
+.logo-brand img {
   width: calc(15vw + 15vh);
   margin-top: 35px;
   margin-left: 300px;
 }
-.introduction
-{
+
+.introduction {
   margin-top: -10px;
   margin-left: 370px;
   font-size: 40px;
 }
-.header-comment{
+
+.header-comment {
   width: 300px;
   text-align: center;
   font-size: 20px;
   margin-left: 300px;
   margin-top: 12px;
 }
-.login-board{
-  position: fixed;  
+
+.login-board {
+  position: fixed;
   background-color: white;
   height: 400px;
   width: 350px;
@@ -40,18 +42,36 @@ body
   top: 105px;
   border-radius: 20px;
 }
-.login
-{
+
+.login {
   font-size: 30px;
   margin-top: 30px;
   display: inline-block;
   margin-left: 40px;
 }
-.qrcode_login
-{
+
+.qrcode_login {
   display: inline-block;
   position: fixed;
   right: 180px;
   width: 60px;
   margin-top: 20px;
+}
+
+#account,
+#password {
+  margin-left: 20px;
+  width: 80%;
+}
+
+.toggle-password {
+  cursor: pointer;
+  user-select: none;
+  position: fixed;
+  right: 200px;
+  top: 259px;
+}
+.show_password_checkbox
+{
+  position: fixed;
 }

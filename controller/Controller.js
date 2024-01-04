@@ -2,6 +2,37 @@ const controller = {};
 const mongoose = require('mongoose');
 const User = require('../models/user');
 
+controller.deleteUser = async (req, res) => {
+    try {
+        const keyword = req.query.keyword;
+
+        await User.deleteOne({ userName: keyword });
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+
+} 
+
+controller.addUser = async (req,res) => {
+  const newUser = new User({
+    userName: "admin",
+    password: "admin",
+    hoTen: "admin",
+    email: "admin",
+    sdt: "01234567764",
+    role: "user",
+  });
+
+  try {
+    const savedUser = await newUser.save();
+    console.log(`User ${savedUser.userID} has been added.`);
+  } catch (error) {
+    console.error(`Error occurred while adding user: ${error}`);
+  }
+}; 
+
 controller.showLogin = (req, res) => {
     let reqUrl = req.query.reqUrl ? req.query.reqUrl : '/';
     if (req.session.user) {

@@ -1,0 +1,11 @@
+.body-container
+{
+  background-color: #F0B90B;
+  position: fixed;
+  height: 50%;
+  left: 0;
+  right: 0;
+  content: "";
+  top: 100px;
+  color: #F0B90B;
+}

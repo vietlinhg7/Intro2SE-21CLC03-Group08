@@ -1,6 +1,8 @@
 const controller = {};
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const Product = require('../models/product');
+
 
 controller.deleteUser = async (req, res) => {
     try {
@@ -13,25 +15,25 @@ controller.deleteUser = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 
-} 
+}
 
-controller.addUser = async (req,res) => {
-  const newUser = new User({
-    userName: "admin",
-    password: "admin",
-    hoTen: "admin",
-    email: "admin",
-    sdt: "01234567764",
-    role: "user",
-  });
+controller.addUser = async (req, res) => {
+    const newUser = new User({
+        userName: "admin",
+        password: "admin",
+        hoTen: "admin",
+        email: "admin",
+        sdt: "01234567764",
+        role: "user",
+    });
 
-  try {
-    const savedUser = await newUser.save();
-    console.log(`User ${savedUser.userID} has been added.`);
-  } catch (error) {
-    console.error(`Error occurred while adding user: ${error}`);
-  }
-}; 
+    try {
+        const savedUser = await newUser.save();
+        console.log(`User ${savedUser.userID} has been added.`);
+    } catch (error) {
+        console.error(`Error occurred while adding user: ${error}`);
+    }
+};
 
 controller.showLogin = (req, res) => {
     let reqUrl = req.query.reqUrl ? req.query.reqUrl : '/';
@@ -90,10 +92,11 @@ controller.isLoggedIn = async (req, res, next) => {
 };
 
 controller.showIndex = async (req, res) => {
-
-        res.render('index', {
-            layout: 'index',
-        });
+    let product = await Product.find({})
+    res.render('index', {
+        layout: 'index',
+        product: product
+    });
 
 };
 controller.showRegister = async (req, res) => {

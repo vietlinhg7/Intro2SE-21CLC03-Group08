@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/user');
-
+const Product = require('./models/product');
 
 const app = express();
 const PORT = 4000;
@@ -30,25 +30,26 @@ app.set("view engine", "hbs");
 const uri = "mongodb+srv://nhom10:web21ktpm@cluster0.uveminn.mongodb.net/nhom8?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// const addUser = async () => {
-//   const newUser = new User({
-//     userName: "admin",
-//     password: "admin",
-//     hoTen: "admin",
-//     email: "admin",
-//     sdt: "01234567764",
-//     role: "user",
-//   });
+const addProduct = async () => {
+  const newProduct = new Product({
+    productName: "Laptop Acer Gaming Predator Helios 300 PH315-54-78W5",
 
-//   try {
-//     const savedUser = await newUser.save();
-//     console.log(`User ${savedUser.userID} has been added.`);
-//   } catch (error) {
-//     console.error(`Error occurred while adding user: ${error}`);
-//   }
-// };
+    price_old: "26.000.000đ",
+    price_current: "24.999.000đ",
+    quality: 60,
+    item_sold: 88,
+    image:"https://product.hstatic.net/1000233206/product/acer-predator-helios-300-ph315-52-78hh_b0c44256d1be443bada03b5b2b20252f_master.png",
+  });
 
-// addUser();
+  try {
+    const savedProduct = await newProduct.save();
+    console.log(`Product ${savedProduct.productName} has been added.`);
+  } catch (error) {
+    console.error(`Error occurred while adding user: ${error}`);
+  }
+};
+
+ addProduct();
 
 // Cau hinh cho phep doc du lieu gui len bang phuong thuc POST
 app.use(express.json());

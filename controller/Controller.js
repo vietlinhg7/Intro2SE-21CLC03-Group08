@@ -92,8 +92,8 @@ controller.isLoggedIn = async (req, res, next) => {
 
 controller.showIndex = async (req, res) => {
 
-        res.render('index', {
-            layout: 'index',
+        res.render('login', {
+            layout: 'login-signup',
         });
 
 };

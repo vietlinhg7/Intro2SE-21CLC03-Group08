@@ -37,7 +37,7 @@ const addUser = async () => {
     hoTen: "admin",
     email: "admin",
     sdt: "01234567764",
-    role: "String",
+    role: "user",
   });
 
   try {
@@ -71,7 +71,7 @@ app.use(
     })
 );
 
-app.use('/', authRouter);
+app.use('/', authRouter);``
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);

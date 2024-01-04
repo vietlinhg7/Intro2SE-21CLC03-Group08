@@ -1,11 +1,24 @@
+body
+{
+  overflow: hidden;
+}
 .body-container
 {
   background-color: #F0B90B;
   position: fixed;
-  height: 50%;
+  height: 80vh;
   left: 0;
   right: 0;
   content: "";
-  top: 100px;
-  color: #F0B90B;
+  top: 60px;
+}
+.logo-brand img{
+  width: calc(15vw + 15vh);
+  margin-top: 35px;
+  margin-left: 200px;
+}
+.introduction
+{
+  margin-left: 250px;
+  font-size: 40px;
 }

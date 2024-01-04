@@ -74,4 +74,6 @@ body {
 .show_password_checkbox
 {
   position: fixed;
+  left: 810px;
+  top: 300px;
 }

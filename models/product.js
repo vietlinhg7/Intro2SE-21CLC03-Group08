@@ -8,6 +8,7 @@ const productSchema = new Schema({
     quantity: Number,
     item_sold: Number,
     image: String,
+    in_cart: Number,
 });
 
 const Product = mongoose.model('Product', productSchema);

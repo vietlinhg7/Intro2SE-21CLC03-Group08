@@ -92,10 +92,12 @@ controller.isLoggedIn = async (req, res, next) => {
 };
 
 controller.showIndex = async (req, res) => {
-    let product = await Product.find({})
+    let product = await Product.find({});
+    let in_cartproduct = await Product.find({ in_cart: 1 });
     res.render('index', {
         layout: 'index',
-        product: product
+        product: product,
+        in_cartproduct: in_cartproduct,
     });
 
 };
@@ -107,5 +109,17 @@ controller.showRegister = async (req, res) => {
 
 };
 
+controller.deleteInCart = async (req, res) => {
+    const keyword = req.query.keyword;
+    await Product.updateOne({ productName: keyword, in_cart: 1 }, { in_cart: 0 });
+    try {
+        
+        res.redirect('/');
+        // or wherever you want to redirect after saving
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+    }
+}
 
 module.exports = controller;

@@ -62,6 +62,8 @@ body {
 #password {
   margin-left: 20px;
   width: 80%;
+  border-radius: 5px;
+  border: 2px solid ;
 }
 
 .toggle-password {
@@ -74,4 +76,29 @@ body {
 .show_password_checkbox
 {
   position: fixed;
+  left: 810px;
+  top: 305px;
+}
+.login-button{
+  background-color: #F0B90B;
+  color: black; 
+  border: none;
+  position: fixed;
+  top: 400px;
+  left: 822px;
+  width: 280px;
+  height: 40px;
+  border-radius: 10px;
+}
+.forgot_password_link
+{
+  position: fixed;
+  top: 410px;
+  left: 810px;
+}
+.signup
+{
+  position: fixed;
+  top: 460px;
+  left: 832px;
 }

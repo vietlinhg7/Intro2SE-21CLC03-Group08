@@ -13,18 +13,22 @@
       </div>
       <form class="input m-3" action="/login" method="POST">
         <label for="account"></label><br>
-        <input class="mx-1 w-100" type="text" id="account" name="account" placeholder="Email/Số điện thoại/Tên đăng nhập"><br>
+        <input class="mx-1 w-100" type="text" id="account" name="account"
+          placeholder="Email/Số điện thoại/Tên đăng nhập"><br>
         <label for="password"></label><br>
         <input class="mx-1 w-100" type="password" id="password" name="password" placeholder="Mật khẩu">
         <div class="show_password_checkbox m-3">
           <input class="my_checkbox text-start" type="checkbox" onclick="myFunction()">
           Hiện mật khẩu
         </div>
-        <button class="login-button m-3 text-start rounded" type="submit">
-          <h5><strong>ĐĂNG NHẬP</strong></h5>
-
-        </button>
-        <h6 class="signup">Bạn mới biết đến Shopbee? <a class="signup_link" href="/register" style="color: #F0B90B;">Đăng ký</a>
+        <div  class="text-center"> <!-- Center the button vertically -->
+          <button id="log-in-button" class="login-button m-3 rounded"
+            type="submit">
+            <h5><strong>ĐĂNG NHẬP</strong></h5>
+          </button>
+        </div>
+        <h6 class="signup">Bạn mới biết đến Shopbee? <a class="signup_link" href="/register"
+            style="color: #F0B90B;">Đăng ký</a>
         </h6>
       </form>
     </div>

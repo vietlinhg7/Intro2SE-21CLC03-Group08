@@ -63,3 +63,13 @@ body{
   margin-left: 20vw;
   margin-top: 2.25%;
 }
+
+#log-in-button
+{
+  padding: auto;
+  background-color: #F0B90B;
+  text-align: center;
+  color: black;
+  border: 1px solid black;
+  width: 30vw; 
+}

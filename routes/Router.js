@@ -11,6 +11,7 @@ router.get('/admin', controller.showAdmin);
 router.get('/logout', controller.logout);
 router.get('/productdetail', controller.isLoggedIn, controller.productdetail);
 router.get('/addtoCart', controller.isLoggedIn, controller.addToCart);
+router.get('/post_product', controller.isLoggedIn, controller.post);
 
 router.post('/login', controller.login);
 router.post('/register', controller.register);

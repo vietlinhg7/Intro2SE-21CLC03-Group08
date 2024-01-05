@@ -218,4 +218,10 @@ controller.addToCart = async (req, res) => {
         in_cartproduct: in_cartproduct,
         });
 }
+
+controller.post = async (req, res) => {
+    return res.render('post_product', {
+        layout: 'index',
+        });
+}
 module.exports = controller;

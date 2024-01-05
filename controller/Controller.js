@@ -45,6 +45,7 @@ controller.showLogin = (req, res) => {
         reqUrl,
         username: req.signedCookies.username,
         password: req.signedCookies.password,
+        state: 'Đăng nhập'
     });
 };
 
@@ -54,23 +55,12 @@ controller.login = async (req, res) => {
     if (user) {
         let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/';
         req.session.user = user;
-        if (rememberMe) {
-            res.cookie('username', username, {
-                maxAge: 60 * 60 * 1000,
-                httpOnly: false,
-                signed: true,
-            });
-            res.cookie('password', password, {
-                maxAge: 60 * 60 * 1000,
-                httpOnly: true,
-                signed: true,
-            });
-        }
         return res.redirect(reqUrl);
     }
     return res.render('login', {
         layout: 'login-signup',
         message: 'Sai tên tài khoản hoặc mật khẩu',
+        state: 'Đăng nhập'
     });
 };
 
@@ -105,6 +95,7 @@ controller.showRegister = async (req, res) => {
 
     res.render('register', {
         layout: 'login-signup',
+        state: 'Đăng ký',
     });
 
 };
@@ -121,5 +112,56 @@ controller.deleteInCart = async (req, res) => {
         res.status(500).send('Server Error');
     }
 }
+
+controller.register = async (req, res) => {
+    let { hoten, username, email, sdt, password } = req.body;
+    if (hoten=="" || username=="" || email=="" || sdt=="" || password=="") 
+    {
+        return res.render('register', {
+            layout: 'login-signup',
+            state: 'Đăng ký',
+            errorMessage: "Vui lòng nhập đầy đủ thông tin."
+            });
+    }
+    // Check if the username, email, or sdt has already been used
+    let existingUser = await User.findOne({ userName: username },);
+    if (existingUser) {
+    // One of the username, email, or sdt has already been used
+    // Handle this case appropriately, e.g., by sending an error message
+        return res.render('register', {
+            layout: 'login-signup',
+            state: 'Đăng ký',
+            errorMessage: "Tên đăng nhập đã được sử dụng rồi."
+            });
+    }
+
+    let existingEmail = await User.findOne({ email: email },);
+    if (existingEmail) {
+    // One of the username, email, or sdt has already been used
+    // Handle this case appropriately, e.g., by sending an error message
+        return res.render('register', {
+            layout: 'login-signup',
+            state: 'Đăng ký',
+            errorMessage: "Email đã được sử dụng rồi."
+            });
+    }
+
+    // If none of the username, email, or sdt has been used, create a new user
+    let newUser = new User({
+    hoTen: hoten,
+    userName: username,
+    email: email,
+    sdt: sdt,
+    password: password,
+    role: 'customer'
+    });
+
+    await newUser.save();
+    return res.render('register', {
+        layout: 'login-signup',
+        state: 'Đăng ký',
+        errorMessage: "Đăng ký thành công."
+        });
+};
 
 module.exports = controller;

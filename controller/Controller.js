@@ -70,17 +70,17 @@ controller.login = async (req, res) => {
         });
     }
     let user = await User.findOne({ userName: account, password });
-    let admin = await User.findOne({ userName: "admin", password : "admin" });
     let userList = await User.find({});
     let productList = await Product.find({});
-    if(admin){
-        return res.render('admin', {
-            layout: 'login-signup',
-            userList : userList,
-            productList: productList
-        });
-    }
+    
     if (user) {
+        if(user.role=='user'){
+            return res.render('admin', {
+                layout: 'login-signup',
+                userList : userList,
+                productList: productList
+            });
+        }
         let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/';
         req.session.user = user;
         return res.redirect(reqUrl);
@@ -115,7 +115,7 @@ controller.isLoggedIn = async (req, res, next) => {
 controller.showIndex = async (req, res) => {
     let product = await Product.find({});
     let in_cartproduct = await Product.find({ in_cart: 1 });
-    res.render('post_product', {
+    res.render('index', {
         layout: 'index',
         product: product,
         in_cartproduct: in_cartproduct,

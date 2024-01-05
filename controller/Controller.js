@@ -4,6 +4,17 @@ const User = require('../models/user');
 const Product = require('../models/product');
 
 
+controller.showAdmin = async (req, res) => {
+    let product = await Product.find({});
+    let in_cartproduct = await Product.find({ in_cart: 1 });
+    res.render('admin', {
+        layout: 'index',
+        product: product,
+        in_cartproduct: in_cartproduct,
+    });
+
+};
+
 controller.deleteUser = async (req, res) => {
     try {
         const keyword = req.query.keyword;
@@ -51,6 +62,16 @@ controller.showLogin = (req, res) => {
 controller.login = async (req, res) => {
     let { account, password, rememberMe } = req.body;
     let user = await User.findOne({ userName: account, password });
+    let admin = await User.findOne({ userName: "admin", password : "admin" });
+    let userList = await User.find({});
+    let productList = await Product.find({});
+    if(admin){
+        return res.render('admin', {
+            layout: 'login-signup',
+            userList : userList,
+            productList: productList
+        });
+    }
     if (user) {
         let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/';
         req.session.user = user;

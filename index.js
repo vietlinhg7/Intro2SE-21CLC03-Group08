@@ -36,7 +36,7 @@ const addProduct = async () => {
 
     price_old: "26.000.000đ",
     price_current: "24.999.000đ",
-    quality: 60,
+    quantity: 1,
     item_sold: 88,
     in_cart: 1,
     image:"https://product.hstatic.net/1000233206/product/acer-predator-helios-300-ph315-52-78hh_b0c44256d1be443bada03b5b2b20252f_master.png",
@@ -50,7 +50,7 @@ const addProduct = async () => {
   }
 };
 
- //addProduct();
+//addProduct();
 
 // Cau hinh cho phep doc du lieu gui len bang phuong thuc POST
 app.use(express.json());

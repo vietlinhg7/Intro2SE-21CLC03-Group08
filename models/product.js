@@ -8,7 +8,7 @@ const productSchema = new Schema({
     quantity: Number,
     item_sold: Number,
     image: String,
-    in_cart: Number,
+    in_cart: Number, // 1: product is in cart, 0: not in cart
 });
 
 const Product = mongoose.model('Product', productSchema);

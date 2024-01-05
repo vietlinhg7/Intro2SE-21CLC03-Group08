@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <title>Shopee-like Product Details</title>
+  <style>
+    body {
+      font-size: 2rem;
+    }
+    .row{
+      margin-top: 25vh;
+    }
+    .thumbnail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .thumbnail-grid img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .thumbnail-grid img:hover {
+      border: 1px solid #777;
+    }
+
+    .big-star {
+      font-size: 3rem;
+      color: gold;
+    }
+
+    .img-fluid {
+      width: 80%;
+      height: auto;
+    }
+
+
+    #sizeSelect,
+    #addressInput {
+      height: 4.5rem;
+      font-size: 1.5rem;
+    }
+
+    #decreaseQty,
+    #increaseQty {
+      font-size: 2rem;
+      text-decoration: bold;
+    }
+
+    #quantityInput {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    #shopping-now {
+      background-color: #F0B90B;
+      color: black;
+      border: none;
+      width: 80%;
+      font-size: 1.5rem;
+      transition: background-color 0.15s;
+      margin-left: -2vw;
+    }
+    #shopping-now:hover {
+      background-color: #f8cc3b;
+    }
+    #add-to-cart {
+      color: #F0B90B;
+      border-color: #F0B90B;
+      background-color: #FFF5F1;
+      width: 80%;
+      font-size: 1.5rem;
+      transition: background-color 0.15s;
+
+    }
+    #add-to-cart:hover {
+      background-color: white;
+    }
+    .form-buttons {
+      margin-top: 10px;
+    }
+
+    .social-icon {
+      font-size: 2rem;
+      border-radius: 50%;
+      padding: 0.5rem;
+    }
+
+    .facebook-icon {
+      background-color: #3b5998;
+      color: #fff;
+    }
+
+    .twitter-icon {
+      background-color: #00acee;
+      color: #fff;
+    }
+
+    .pinterest-icon {
+      background-color: #bd081c;
+      color: #fff;
+    }
+
+    .messenger-icon {
+      background-color: #00BFFF;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Product Images  -->
+        <img src="./assets/img/thumbnail(1).jpeg" alt="Product Image" class="img-fluid">
+        <!-- Thumbnail Grid -->
+        <div class="thumbnail-grid">
+          <img src="./assets/img/thumbnail(2).jpeg" alt="Thumbnail 2">
+          <img src="./assets/img/thumbnail(3).jpeg" alt="Thumbnail 3">
+          <img src="./assets/img/thumbnail(4).jpeg" alt="Thumbnail 4">
+          <img src="./assets/img/thumbnail(4).jpeg" alt="Thumbnail 5">
+          {{!-- <img src="./assets/img/thumbnail(6).jpeg" alt="Thumbnail 6"> --}}
+          {{!-- <img src="./assets/img/thumbnail(7).jpeg" alt="Thumbnail 7"> --}}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2>Giày cầu lông nam nữ Yonex SHB65Z3 giày thể thao chuyên nghiệp màu đen</h2>
+        <span class="big-star">&#9733; &#9733; &#9733; &#9733; &#9733;</span> (25 reviews)
+        <p>Đã bán: 1000</p>
+        <p>Giá: 999.000đ</p>
+
+        <!-- Size selection dropdown -->
+        <div class="form-group">
+          <label for="sizeSelect">Kích cỡ:</label>
+          <select class="form-control btn-sm" id="sizeSelect">
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+
+        <!-- Quantity adjustment -->
+        <div class="form-group">
+          <label for="quantityInput">Số lượng:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-secondary btn-sm" type="button" id="decreaseQty">-</button>
+            </div>
+            <input type="text" class="form-control" value="1" id="quantityInput">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary btn-sm" type="button" id="increaseQty">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address input -->
+        <div class="form-group">
+          <label for="addressInput">Địa chỉ giao hàng:</label>
+          <input type="text" class="form-control" id="addressInput" placeholder="Nhập địa chỉ giao hàng">
+        </div>
+
+        <!-- Add to Cart and Buy Now buttons -->
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <button id="add-to-cart" class="btn btn-primary btn-block">Thêm vào giỏ hàng</button>
+          </div>
+          <div class="col-md-6">
+            <button id="shopping-now" class="btn btn-success btn-block">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social media icons and like count -->
+    <div class="mt-4">
+      <p>Chia sẻ:
+        <i class="fab fa-facebook-square mx-2 social-icon facebook-icon"></i>
+        <i class="fab fa-twitter-square mx-2 social-icon twitter-icon"></i>
+        <i class="fab fa-pinterest-square mx-2 social-icon pinterest-icon"></i>
+        <i class="fab fa-facebook-messenger mx-2 social-icon messenger-icon"></i>
+      </p>
+
+      <p>Đã thích: 50 <i class="fa fa-heart" style="font-size:2rem;color:red"></i></p>
+    </div>
+  </div>
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap JS and Popper.js (Optional) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript for quantity adjustment -->
+  <script>
+    document.getElementById('decreaseQty').addEventListener('click', function () {
+      var quantityInput = document.getElementById('quantityInput');
+      var quantity = parseInt(quantityInput.value);
+      if (quantity > 1) {
+        quantityInput.value = quantity - 1;
+      }
+    });
+
+    document.getElementById('increaseQty').addEventListener('click', function () {
+      var quantityInput = document.getElementById('quantityInput');
+      var quantity = parseInt(quantityInput.value);
+      quantityInput.value = quantity + 1;
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>

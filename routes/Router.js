@@ -11,5 +11,6 @@ router.get('/admin', controller.showAdmin);
 router.get('/logout', controller.logout);
 
 router.post('/login', controller.login);
+router.post('/register', controller.register);
 router.post('/deleteInCart',controller.deleteInCart);
 module.exports = router;

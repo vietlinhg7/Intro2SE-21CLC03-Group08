@@ -13,7 +13,7 @@
       </div>
       <form class="input m-3" action="/login" method="POST">
         <label for="account"></label><br>
-        <input class="mx-1 w-100" type="text" id="account" name="account" placeholder="Email/Số điện thoại/Tên đăng nhập"><br>
+        <input class="mx-1 w-100" type="text" id="account" name="account" placeholder="Tên đăng nhập"><br>
         <label for="password"></label><br>
         <input class="mx-1 w-100" type="password" id="password" name="password" placeholder="Mật khẩu">
         <div class="show_password_checkbox m-3">
@@ -38,6 +38,11 @@
       } else {
         x.type = "password";
       }
+    }
+  </script>
+  <script>
+    if ('{{message}}') {
+    alert('{{message}}');
     }
   </script>
 </body>

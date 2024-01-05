@@ -51,10 +51,10 @@
             </li>
             <li class="header__navbar-item">
               <span class="header__navbar-title--no-pointer">Kết nối</span>
-              <a href="https://www.facebook.com/ShopeeVN?locale=vi_VN" class="header__navbar-icon-link" target="_blank">
+              <a href="https://www.facebook.com/khoahd7621/" class="header__navbar-icon-link">
                 <i class="header__navbar-icon fa-brands fa-facebook"></i>
               </a>
-              <a href="https://www.instagram.com/shopee_vn/" class="header__navbar-icon-link" target="_blank">
+              <a href="https://www.instagram.com/khoahd7621/" class="header__navbar-icon-link">
                 <i class="header__navbar-icon fa-brands fa-instagram"></i>
               </a>
             </li>
@@ -148,17 +148,11 @@
             <li class="header__navbar-item header__navbar-user">
               <img src="https://i.pinimg.com/736x/13/2e/a7/132ea72d2bc3b85d90409c9e8f2d0f4a.jpg" alt=""
                 class="header__navbar-user-img">
-              <span class="header__navbar-user-name">Quốc Tỉ</span>
+              <span class="header__navbar-user-name">{{user.hoTen}}</span>
 
               <ul class="header__navbar-user-menu">
                 <li class="header__navbar-user-item">
                   <a href="">Tài khoản của tôi</a>
-                </li>
-                <li class="header__navbar-user-item">
-                  <a href="">Địa chỉ của tôi</a>
-                </li>
-                <li class="header__navbar-user-item">
-                  <a href="">Đơn mua</a>
                 </li>
                 <li class="header__navbar-user-item header__navbar-user-item--separate">
                   <a href="/logout">Đăng xuất</a>
@@ -176,7 +170,7 @@
           <!-- Shopbee logo icon -->
           <div class="header__logo hide-on-tablet">
             <a href="./" class="header__logo-link">
-              <img src="./assets/img/Shopbee.png" style="width: calc(10vw + 10vh); position: fixed; left:2vw; top: 10vh">
+              <img src="./assets/img/Shopbee.png" style="width: calc(10vw + 10vh);">
 
             </a>
           </div>
@@ -216,7 +210,26 @@
             </button>
 
             <!-- Header search suggest -->
-
+            <ul class="header__search-suggest-list hide-on-mobile-tablet">
+              <li class="header__search-suggest-list-item">
+                <a href="#" class="header__search-suggest-link">Dép</a>
+              </li>
+              <li class="header__search-suggest-list-item">
+                <a href="#" class="header__search-suggest-link">Áo Phông</a>
+              </li>
+              <li class="header__search-suggest-list-item">
+                <a href="#" class="header__search-suggest-link">Váy</a>
+              </li>
+              <li class="header__search-suggest-list-item">
+                <a href="#" class="header__search-suggest-link">Áo Khoác</a>
+              </li>
+              <li class="header__search-suggest-list-item">
+                <a href="#" class="header__search-suggest-link">Áo Thun</a>
+              </li>
+              <li class="header__search-suggest-list-item">
+                <a href="#" class="header__search-suggest-link">Túi xách nữ</a>
+              </li>
+            </ul>
           </div>
 
           <!-- Cart layout -->
@@ -225,7 +238,7 @@
               <!-- <i class="header__cart-icon fa-solid fa-cart-shopping"></i> -->
               <img src="./assets/img/cart-logo-with-bee.png" style="width: calc(3vw + 3vh)">
 
-              <span class="header__cart-notice">1</span>
+              <span class="header__cart-notice">{{in_cartproduct.length}}</span>
 
               <!-- No cart: header__cart-list--no-cart -->
               <div class="header__cart-list">
@@ -249,11 +262,11 @@
                       </div>
                       <div class="header__cart-item-body">
                         <form action="/deleteInCart?keyword={{productName}}" method="POST">
-                          <button>
-                            <span class="header__cart-item-remove">
-                              Xóa
-                            </span>
-                          </button>
+                        <button>
+                          <span class="header__cart-item-remove">
+                            Xóa
+                          </span>
+                        </button>
                         </form>
 
                       </div>
@@ -272,8 +285,8 @@
 
     </header>
   </div>
+  {{{body}}}
 </body>
 
-{{{body}}}
 
 </html>

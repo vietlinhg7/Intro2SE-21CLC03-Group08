@@ -127,34 +127,16 @@
     <div class="row">
       <div class="col-md-6">
         <!-- Product Images  -->
-        <img src="./assets/img/thumbnail(1).jpeg" alt="Product Image" class="img-fluid">
-        <!-- Thumbnail Grid -->
-        <div class="thumbnail-grid">
-          <img src="./assets/img/thumbnail(2).jpeg" alt="Thumbnail 2">
-          <img src="./assets/img/thumbnail(3).jpeg" alt="Thumbnail 3">
-          <img src="./assets/img/thumbnail(4).jpeg" alt="Thumbnail 4">
-          <img src="./assets/img/thumbnail(4).jpeg" alt="Thumbnail 5">
-          {{!-- <img src="./assets/img/thumbnail(6).jpeg" alt="Thumbnail 6"> --}}
-          {{!-- <img src="./assets/img/thumbnail(7).jpeg" alt="Thumbnail 7"> --}}
-        </div>
+        <img src="{{product.image}}" alt="Product Image" class="img-fluid">
+        
       </div>
       <div class="col-md-6">
-        <h2>Giày cầu lông nam nữ Yonex SHB65Z3 giày thể thao chuyên nghiệp màu đen</h2>
+        <h2>{{product.productName}}</h2>
         <span class="big-star">&#9733; &#9733; &#9733; &#9733; &#9733;</span> (25 reviews)
-        <p>Đã bán: 1000</p>
-        <p>Giá: 999.000đ</p>
-
-        <!-- Size selection dropdown -->
-        <div class="form-group">
-          <label for="sizeSelect">Kích cỡ:</label>
-          <select class="form-control btn-sm" id="sizeSelect">
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
-        </div>
-
+        <p>Đã bán: {{product.item_sold}}</p>
+        <p>Số lượng còn lại: {{product.quantity}}</p>
+        <p>Giá: {{product.price_current}}</p>
+      
         <!-- Quantity adjustment -->
         <div class="form-group">
           <label for="quantityInput">Số lượng:</label>
@@ -169,16 +151,11 @@
           </div>
         </div>
 
-        <!-- Address input -->
-        <div class="form-group">
-          <label for="addressInput">Địa chỉ giao hàng:</label>
-          <input type="text" class="form-control" id="addressInput" placeholder="Nhập địa chỉ giao hàng">
-        </div>
 
         <!-- Add to Cart and Buy Now buttons -->
         <div class="row">
           <div class="col-md-6 mb-4">
-            <button id="add-to-cart" class="btn btn-primary btn-block">Thêm vào giỏ hàng</button>
+            <button id="add-to-cart" class="btn btn-primary btn-block" data-product-id={{product.productID}}>Thêm vào giỏ hàng</button>
           </div>
           <div class="col-md-6">
             <button id="shopping-now" class="btn btn-success btn-block">Mua ngay</button>
@@ -187,17 +164,6 @@
       </div>
     </div>
 
-    <!-- Social media icons and like count -->
-    <div class="mt-4">
-      <p>Chia sẻ:
-        <i class="fab fa-facebook-square mx-2 social-icon facebook-icon"></i>
-        <i class="fab fa-twitter-square mx-2 social-icon twitter-icon"></i>
-        <i class="fab fa-pinterest-square mx-2 social-icon pinterest-icon"></i>
-        <i class="fab fa-facebook-messenger mx-2 social-icon messenger-icon"></i>
-      </p>
-
-      <p>Đã thích: 50 <i class="fa fa-heart" style="font-size:2rem;color:red"></i></p>
-    </div>
   </div>
 
   <!-- Font Awesome Icons -->
@@ -222,6 +188,17 @@
       var quantityInput = document.getElementById('quantityInput');
       var quantity = parseInt(quantityInput.value);
       quantityInput.value = quantity + 1;
+    });
+    document.getElementById('add-to-cart').addEventListener('click', function() {
+      // Extract product ID and quantity
+      var productId = this.dataset.productId;
+      var quantity = document.getElementById('quantityInput').value;
+      if (quantity<={{product.quantity}})
+        window.location.href = '/addtoCart?productID=' + productId + '&quantity=' + quantity;
+      else {
+        alert('Sản phẩm không có đủ số lượng bạn chọn');
+      }
+      
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

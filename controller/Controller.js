@@ -50,18 +50,28 @@ controller.showLogin = (req, res) => {
 };
 
 controller.login = async (req, res) => {
-    let { account, password, rememberMe } = req.body;
+    let { account, password} = req.body;
+    if (account=="" || password==""){
+        return res.render('login', {
+            layout: 'login-signup',
+            message: 'Vui lòng nhập đủ thông tin đăng nhập',
+            state: 'Đăng nhập'
+        });
+    }
     let user = await User.findOne({ userName: account, password });
     if (user) {
         let reqUrl = req.body.reqUrl ? req.body.reqUrl : '/';
         req.session.user = user;
         return res.redirect(reqUrl);
     }
-    return res.render('login', {
-        layout: 'login-signup',
-        message: 'Sai tên tài khoản hoặc mật khẩu',
-        state: 'Đăng nhập'
-    });
+    else {
+        return res.render('login', {
+            layout: 'login-signup',
+            message: 'Sai tên đăng nhập hoặc mật khẩu',
+            state: 'Đăng nhập'
+        });
+            
+    }
 };
 
 controller.logout = (req, res, next) => {
@@ -164,4 +174,27 @@ controller.register = async (req, res) => {
         });
 };
 
+controller.productdetail = async (req, res) => {
+    let product = await Product.findOne({productID: req.query.productID});
+    let in_cartproduct = await Product.find({ in_cart: { $gt: 0 } });
+    res.locals.product = product;
+    return res.render('product_details', {
+        layout: 'index',
+        in_cartproduct: in_cartproduct,
+        });
+}
+controller.addToCart = async (req, res) => {
+    let product = await Product.findOneAndUpdate(
+        { productID: req.query.productID }, 
+        { $set: { in_cart: req.query.quantity } }, 
+        { new: true }
+       );
+
+    let in_cartproduct = await Product.find({ in_cart: { $gt: 0 } });
+    res.locals.product = product;
+    return res.render('product_details', {
+        layout: 'index',
+        in_cartproduct: in_cartproduct,
+        });
+}
 module.exports = controller;

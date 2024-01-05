@@ -35,7 +35,6 @@ body{
 /* cái này nằm bên template chung */
 .login-signup-header
 {
-  position: fixed;
   top: 0;
 }
 
@@ -45,23 +44,32 @@ body{
   height: 10vh;
   margin-left: 10vw;
   margin-top: 0.5%;
-  display: inline-block;
-  position: fixed;
 }
 
 .login-signup-header h2
 {
-  position: fixed;
-  margin-left: 16vw;
+  margin-left: 2vw;
   margin-top: 2.0%;
-  display: inline-block;
   color: #F0B90B;
+  display: inline-block;
+  position: fixed;
 }
 
 .login-signup-header h3
 {
-  position: fixed;
-  margin-left: 27.2vw;
-  margin-top: 2.25%;
   display: inline-block;
+
+  position: fixed;
+  margin-left: 20vw;
+  margin-top: 2.25%;
+}
+
+#log-in-button
+{
+  padding: auto;
+  background-color: #F0B90B;
+  text-align: center;
+  color: black;
+  border: 1px solid black;
+  width: 30vw; 
 }

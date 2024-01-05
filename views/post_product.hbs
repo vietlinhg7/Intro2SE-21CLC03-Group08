@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Product</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      margin-top: 150px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .product-images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .product-image {
+      flex: 1 0 100%;
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .product-details {
+      margin-top: 20px;
+    }
+
+    .product-details label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 20px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .cancel-button {
+      background-color: #ccc;
+    }
+
+    .cancel-button:hover {
+      background-color: #ddd;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .product-image {
+        flex: 1 0 100%;
+      }
+    }
+
+    #addReferenceImageBtn,
+    .add-product-button {
+      background-color: #F0B90B;
+      color: black
+    }
+
+    .cancel-button {
+      background-color: rgb(171, 23, 23);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Sản phẩm đăng bán</h2>
+    <div class="product-images">
+      <div class="product-image">
+        <label for="mainProductImage">Hình ảnh chính:</label>
+        <input type="file" id="mainProductImage" name="mainProductImage" accept="image/*" required>
+      </div>
+      <div class="product-image">
+        <label for="additionalImage1">Hình ảnh tham khảo 1:</label>
+        <input type="file" id="additionalImage1" name="additionalImage1" accept="image/*" required>
+      </div>
+      <div class="product-image" id="additionalImagesContainer">
+        <!-- Additional images will be added here dynamically -->
+      </div>
+      <button id="addReferenceImageBtn" type="button">Thêm hình ảnh tham khảo</button>
+    </div>
+
+    <div class="product-details">
+      <label for="productName">Tên sản phẩm:</label>
+      <input type="text" id="productName" name="productName" required>
+
+      <label for="productQuantity">Số lượng:</label>
+      <input type="number" id="productQuantity" name="productQuantity" required>
+
+
+      <label for="productPrice">Giá:</label>
+      <input type="number" id="productPrice" name="productPrice" required>
+
+      {{!-- <label for="productDetails">Thông tin chi tiết:</label>
+      <textarea id="productDetails" name="productDetails" rows="4" required></textarea> --}}
+
+      <div class="button-group">
+        <button type="button" class="cancel-button">Hủy</button>
+        <button type="submit" class="add-product-button">Đăng</button>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('addReferenceImageBtn').addEventListener('click', function () {
+      var container = document.getElementById('additionalImagesContainer');
+      var input = document.createElement('div');
+      input.innerHTML = '<label for="additionalImage' + (container.children.length + 2) + '">Additional Image ' + (container.children.length + 2) + ':</label>' +
+        '<input type="file" id="additionalImage' + (container.children.length + 2) + '" name="additionalImage' + (container.children.length + 2) + '" accept="image/*" required>';
+      container.appendChild(input);
+    });
+  </script>
+</body>
+
+</html>

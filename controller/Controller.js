@@ -94,7 +94,7 @@ controller.isLoggedIn = async (req, res, next) => {
 controller.showIndex = async (req, res) => {
     let product = await Product.find({});
     let in_cartproduct = await Product.find({ in_cart: 1 });
-    res.render('index', {
+    res.render('post_product', {
         layout: 'index',
         product: product,
         in_cartproduct: in_cartproduct,

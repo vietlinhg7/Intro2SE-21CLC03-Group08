@@ -740,7 +740,7 @@
   list-style: none;
   display: flex;
   padding-left: 0;
-  margin: 0.2vh 0 0 0;
+  margin: 1vh 0 0 0;
 }
 
 .header__search-suggest-link {

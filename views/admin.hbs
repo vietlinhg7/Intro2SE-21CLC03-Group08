@@ -76,13 +76,15 @@
                             <thead>
                                 <tr>
                                     <th class="col-6">Tên người dùng</th>
-                                    <th class="col-6">Loại hình thức</th>
+                                    <th class="col-6">Vai trò</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {{#each userList}}
                                 <tr>
                                     <td>
+                                            {{hoTen}}
+
                                         <form action="/suaLoai/{{loaiID}}/{{loai}}" method="POST">
                                             <div class="float-end">
                                                 <a class="p-2 bi bi-trash-fill text-danger"
@@ -99,9 +101,9 @@
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div>
-                                            {{userName}}
-                                        </form>
+                                        </form> 
                                     </td>
+                                    <td>{{role}}</td>
                                 </tr>
                                 {{/each}}
                             </tbody>

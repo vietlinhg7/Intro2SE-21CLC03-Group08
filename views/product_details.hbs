@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <title>Shopee-like Product Details</title>
   <style>
-    /* Add your custom styles here */
-    /* Adjust styles based on your design preferences */
     body {
       font-size: 2rem;
     }
@@ -38,9 +35,7 @@
 
     .big-star {
       font-size: 3rem;
-      /* Adjust the size as needed */
       color: gold;
-      /* Yellow color */
     }
 
     .img-fluid {
@@ -53,7 +48,6 @@
     #addressInput {
       height: 4.5rem;
       font-size: 1.5rem;
-      /* Adjust the height as needed */
     }
 
     #decreaseQty,
@@ -70,10 +64,6 @@
     .form-group {
       margin-bottom: 20px;
     }
-
-    /* Add margin between buttons */
-
-
     #shopping-now {
       background-color: #F0B90B;
       color: black;
@@ -83,11 +73,9 @@
       transition: background-color 0.15s;
       margin-left: -2vw;
     }
-
     #shopping-now:hover {
       background-color: #f8cc3b;
     }
-
     #add-to-cart {
       color: #F0B90B;
       border-color: #F0B90B;
@@ -95,16 +83,39 @@
       width: 80%;
       font-size: 1.5rem;
       transition: background-color 0.15s;
-      
-    }
 
+    }
     #add-to-cart:hover {
       background-color: white;
     }
-
     .form-buttons {
       margin-top: 10px;
-      /* Adjust the margin as needed */
+    }
+
+    .social-icon {
+      font-size: 2rem;
+      border-radius: 50%;
+      padding: 0.5rem;
+    }
+
+    .facebook-icon {
+      background-color: #3b5998;
+      color: #fff;
+    }
+
+    .twitter-icon {
+      background-color: #00acee;
+      color: #fff;
+    }
+
+    .pinterest-icon {
+      background-color: #bd081c;
+      color: #fff;
+    }
+
+    .messenger-icon {
+      background-color: #00BFFF;
+      color: #fff;
     }
   </style>
 </head>
@@ -177,12 +188,13 @@
     <!-- Social media icons and like count -->
     <div class="mt-4">
       <p>Chia sẻ:
-        <!-- <i class="fab fa-facebook-square mx-2"></i> -->
-        <i class="bi bi-facebook"></i>
-        <i class="fab fa-twitter-square mx-2"></i>
-        <i class="fab fa-pinterest-square mx-2"></i>
+        <i class="fab fa-facebook-square mx-2 social-icon facebook-icon"></i>
+        <i class="fab fa-twitter-square mx-2 social-icon twitter-icon"></i>
+        <i class="fab fa-pinterest-square mx-2 social-icon pinterest-icon"></i>
+        <i class="fab fa-facebook-messenger mx-2 social-icon messenger-icon"></i>
       </p>
-      <p>Đã thích: 500</p>
+
+      <p>Đã thích: 50 <i class="fa fa-heart" style="font-size:2rem;color:red"></i></p>
     </div>
   </div>
 

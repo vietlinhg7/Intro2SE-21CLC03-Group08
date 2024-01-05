@@ -53,9 +53,6 @@ body {
 .form-group {
   margin-bottom: 20px;
 }
-
-
-
 #shopping-now {
   background-color: #F0B90B;
   color: black;
@@ -65,11 +62,9 @@ body {
   transition: background-color 0.15s;
   margin-left: -2vw;
 }
-
 #shopping-now:hover {
   background-color: #f8cc3b;
 }
-
 #add-to-cart {
   color: #F0B90B;
   border-color: #F0B90B;
@@ -79,11 +74,35 @@ body {
   transition: background-color 0.15s;
 
 }
-
 #add-to-cart:hover {
   background-color: white;
 }
-
 .form-buttons {
   margin-top: 10px;
+}
+
+.social-icon {
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.facebook-icon {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.twitter-icon {
+  background-color: #00acee;
+  color: #fff;
+}
+
+.pinterest-icon {
+  background-color: #bd081c;
+  color: #fff;
+}
+
+.messenger-icon {
+  background-color: #00BFFF;
+  color: #fff;
 }

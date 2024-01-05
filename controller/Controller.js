@@ -74,7 +74,7 @@ controller.login = async (req, res) => {
     let productList = await Product.find({});
     
     if (user) {
-        if(user.role=='user'){
+        if(user.role=='admin'){
             return res.render('admin', {
                 layout: 'login-signup',
                 userList : userList,
